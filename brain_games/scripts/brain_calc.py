@@ -1,4 +1,4 @@
-import brain_games.source as source
+import brain_games.functions as source
 
 
 def main():
