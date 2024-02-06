@@ -1,20 +1,22 @@
 import prompt
+from brain_games import functions
 
 
-def launch_game(game):
+def launch_game(notice, game_data):
     print("Welcome to the Brain Games!")
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}!')
-    print(game.notice)
+    print(notice)
 
     attempts_count = 3
 
-    def game_progress(attempts, gamef):
+    def game_progress(attempts, data):
         if attempts == 0:
             print(f'Congratulations, {name}!')
             return
 
-        question, answer = gamef.create_game_data()
+        question = functions.get_question(data)
+        answer = functions.get_answer(data)
 
         print(f'Question: {question}')
         user_answer = prompt.string('Your answer: ')
@@ -27,6 +29,6 @@ def launch_game(game):
 
         print('Correct!')
 
-        return game_progress(attempts - 1, gamef)
+        return game_progress(attempts - 1, data)
 
-    game_progress(attempts_count, game)
+    game_progress(attempts_count, game_data)
