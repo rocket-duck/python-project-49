@@ -16,7 +16,7 @@ def launch_game(notice, game_data):
             return
 
         question = functions.get_question(data)
-        answer = functions.get_answer(data)
+        answer = str(functions.get_answer(data))
 
         print(f'Question: {question}')
         user_answer = prompt.string('Your answer: ')
