@@ -1,19 +1,26 @@
 from random import randint
+from brain_games import game_logic
 
 notice = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-min_number = 1
-max_number = 100
+MIN_NUMBER = 1
+MAX_NUMBER = 100
 
 
 def is_even(num):
     return num % 2 == 0
 
 
-question = randint(min_number, max_number)
+def make_question_and_answer():
+    question = randint(MIN_NUMBER, MAX_NUMBER)
+
+    if is_even(question):
+        answer = 'yes'
+    else:
+        answer = 'no'
+
+    return question, answer
 
 
-if is_even(question):
-    answer = 'yes'
-else:
-    answer = 'no'
+def run_game():
+    game_logic.launch_game(notice, make_question_and_answer)

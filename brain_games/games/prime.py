@@ -1,9 +1,10 @@
 from random import randint
+from brain_games import game_logic
 
 notice = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
-min_number = 1
-max_number = 100
+MIN_NUMBER = 1
+MAX_NUMBER = 100
 
 
 def is_prime(number):
@@ -19,5 +20,12 @@ def is_prime(number):
     return True
 
 
-question = randint(min_number, max_number)
-answer = 'yes' if is_prime(question) else 'no'
+def make_question_and_answer():
+    question = randint(MIN_NUMBER, MAX_NUMBER)
+    answer = 'yes' if is_prime(question) else 'no'
+
+    return question, answer
+
+
+def run_game():
+    game_logic.launch_game(notice, make_question_and_answer)

@@ -1,12 +1,11 @@
 import prompt
-from brain_games import functions
 
 
 def launch_game(notice, game_data):
-    print("Welcome to the Brain Games!")
-    name = prompt.string('May I have your name? ')
-    print(f'Hello, {name}!')
-    print(notice)
+    name = prompt.string('Welcome to the Brain Games!\n'
+                         'May I have your name? ')
+    print(f'Hello, {name}!\n'
+          f'{notice}')
 
     attempts_count = 3
 
@@ -15,8 +14,7 @@ def launch_game(notice, game_data):
             print(f'Congratulations, {name}!')
             return
 
-        question = functions.get_question(data)
-        answer = str(functions.get_answer(data))
+        question, answer = data()
 
         print(f'Question: {question}')
         user_answer = prompt.string('Your answer: ')

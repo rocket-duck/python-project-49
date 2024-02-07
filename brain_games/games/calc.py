@@ -1,24 +1,31 @@
-from random import randint
+import random
+from brain_games import game_logic
 
 notice = 'What is the result of the expression?'
 
-
 game_symbols = ['+', '-', '*']
-symbol_index = randint(0, 2)
 
-min_number = 1
-max_number = 10
-
-number_1 = randint(min_number, max_number)
-number_2 = randint(min_number, max_number)
-
-question = f'{number_1} {game_symbols[symbol_index]} {number_2}'
+MIN_NUMBER = 1
+MAX_NUMBER = 10
 
 
-match game_symbols[symbol_index]:
-    case '+':
-        answer = number_1 + number_2
-    case '-':
-        answer = number_1 - number_2
-    case '*':
-        answer = number_1 * number_2
+def make_question_and_answer():
+    symbol = random.choice(game_symbols)
+    num1 = random.randint(MIN_NUMBER, MAX_NUMBER)
+    num2 = random.randint(MIN_NUMBER, MAX_NUMBER)
+
+    question = f'{num1} {symbol} {num2}'
+
+    match symbol:
+        case '+':
+            answer = num1 + num2
+        case '-':
+            answer = num1 - num2
+        case '*':
+            answer = num1 * num2
+
+    return question, str(answer)
+
+
+def run_game():
+    game_logic.launch_game(notice, make_question_and_answer)

@@ -1,12 +1,11 @@
 from random import randint
+from brain_games import game_logic
+
 
 notice = 'Find the greatest common divisor of given numbers.'
 
-min_number = 1
-max_number = 20
-
-number_1 = randint(min_number, max_number)
-number_2 = randint(min_number, max_number)
+MIN_NUMBER = 1
+MAX_NUMBER = 100
 
 
 def find_GCD(num_1, num_2):
@@ -19,5 +18,15 @@ def find_GCD(num_1, num_2):
     return find_GCD(num_2, num_1 % num_2)
 
 
-question = f'{number_1} {number_2}'
-answer = find_GCD(number_1, number_2)
+def make_question_and_answer():
+    num1 = randint(MIN_NUMBER, MAX_NUMBER)
+    num2 = randint(MIN_NUMBER, MAX_NUMBER)
+
+    question = f'{num1} {num2}'
+    answer = find_GCD(num1, num2)
+
+    return question, str(answer)
+
+
+def run_game():
+    game_logic.launch_game(notice, make_question_and_answer)

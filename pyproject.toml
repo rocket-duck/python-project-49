@@ -1,15 +1,23 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "learning project, where you can play the calculator"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Games/Entertainment",
+    "Programming Language :: Python :: 3.10",
+    "Framework :: Flake8"
+]
 authors = ["void_duck"]
+repository = "https://github.com/rocket-duck/python-project-49"
 readme = "README.md"
+
 packages = [
   { include = "brain_games" },
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 prompt = "^0.4.1"
 
 [tool.poetry.group.dev.dependencies]

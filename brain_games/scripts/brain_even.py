@@ -1,13 +1,8 @@
-from brain_games import functions
 from brain_games.games import even
-from brain_games import game_logic
 
 
 def main():
-    game_logic.launch_game(
-        even.notice,
-        functions.create_game_data(even.question, even.answer)
-    )
+    even.run_game()
 
 
 if __name__ == '__main__':

@@ -1,14 +1,12 @@
 from random import randint
+from brain_games import game_logic
 
 notice = 'What number is missing in the progression?'
 
 progression_length = 10
 
-min_number = 1
-max_number = 10
-
-progression_start = randint(min_number, max_number)
-progression_step = randint(min_number, max_number)
+MIN_NUMBER = 1
+MAX_NUMBER = 10
 
 
 def make_progression(start, step, length):
@@ -21,11 +19,22 @@ def make_progression(start, step, length):
     return progression
 
 
-question_position = randint(min_number, max_number)
-make_question = make_progression(
-    progression_start, progression_step, progression_length
-)
+def make_question_and_answer():
+    progression_start = randint(MIN_NUMBER, MAX_NUMBER)
+    progression_step = randint(MIN_NUMBER, MAX_NUMBER)
 
-answer = make_question[question_position]
-make_question[question_position] = '..'
-question = ' '.join(map(str, make_question))
+    make_question = make_progression(
+        progression_start, progression_step, progression_length
+    )
+
+    question_position = randint(MIN_NUMBER, MAX_NUMBER)
+
+    answer = make_question[question_position]
+    make_question[question_position] = '..'
+    question = ' '.join(map(str, make_question))
+
+    return question, str(answer)
+
+
+def run_game():
+    game_logic.launch_game(notice, make_question_and_answer)
