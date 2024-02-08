@@ -3,7 +3,7 @@ from brain_games import game_logic
 
 notice = 'What number is missing in the progression?'
 
-progression_length = 10
+PROGRESSIOM_LENGTH = 10
 
 MIN_NUMBER = 1
 MAX_NUMBER = 10
@@ -24,7 +24,7 @@ def make_question_and_answer():
     progression_step = randint(MIN_NUMBER, MAX_NUMBER)
 
     make_question = make_progression(
-        progression_start, progression_step, progression_length
+        progression_start, progression_step, PROGRESSIOM_LENGTH
     )
 
     question_position = randint(MIN_NUMBER, MAX_NUMBER)

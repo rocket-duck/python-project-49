@@ -13,11 +13,7 @@ def is_even(num):
 
 def make_question_and_answer():
     question = randint(MIN_NUMBER, MAX_NUMBER)
-
-    if is_even(question):
-        answer = 'yes'
-    else:
-        answer = 'no'
+    answer = 'yes' if is_even(question) else 'no'
 
     return question, answer
 
